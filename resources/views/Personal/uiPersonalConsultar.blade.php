@@ -80,28 +80,28 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="control-label"> Nombre Completo </label>
-                                            <input type="text" value="{{ $vPer_Nombre }}" placeholder="Francisco Gabriel" class="form-control" id="TePer_Nombre" name="TePer_Nombre">
+                                            <input type="text" disabled value="{{ $vPer_Nombre }}" class="form-control" id="TePer_Nombre" name="TePer_Nombre">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="control-label"> Apellido Paterno </label>
-                                            <input type="text" value="{{ $vPer_Paterno }}" placeholder="Álvarez" class="form-control" id="TePer_Paterno" name="TePer_Paterno">
+                                            <input type="text" disabled value="{{ $vPer_Paterno }}" class="form-control" id="TePer_Paterno" name="TePer_Paterno">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="control-label"> Apellido Materno </label>
-                                            <input type="text" value="{{ $vPer_Materno }}" placeholder="Alcaraz" class="form-control" id="TePer_Materno" name="TePer_Materno">
+                                            <input type="text" disabled value="{{ $vPer_Materno }}" class="form-control" id="TePer_Materno" name="TePer_Materno">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="control-label"> Genero </label>
                                             <div class="clip-radio radio-primary">
-                                                <input type="radio" value="0" name="RaPer_Sexo" id="RaPer_SexoFem" @if ($vPer_Sexo == 0) checked @endif />
+                                                <input disabled type="radio" value="0" name="RaPer_Sexo" id="RaPer_SexoFem" @if ($vPer_Sexo == 0) checked @endif />
                                                 <label style="margin-right: 0px !important;" for="RaPer_SexoFem">Femenino</label>
-                                                <input type="radio" value="1" name="RaPer_Sexo" id="RaPer_SexoMas" @if ($vPer_Sexo == 1) checked @endif />
+                                                <input disabled type="radio" value="1" name="RaPer_Sexo" id="RaPer_SexoMas" @if ($vPer_Sexo == 1) checked @endif />
                                                 <label style="margin-right: 0px !important;" for="RaPer_SexoMas">Masculino</label>
                                             </div>
                                         </div>
@@ -111,19 +111,19 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="control-label"> CURP </label>
-                                            <input type="text" value="{{ $vPer_CURP }}" placeholder="AAAF910710HCSLLR02" class="form-control" id="TePer_CURP" name="TePer_CURP">
+                                            <input type="text" disabled value="{{ $vPer_CURP }}" class="form-control" id="TePer_CURP" name="TePer_CURP">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="control-label"> RFC </label>
-                                            <input type="text" value="{{ $vPer_RFC }}" placeholder="AAAF9107106I4" class="form-control" id="TePer_RFC" name="TePer_RFC">
+                                            <input type="text" disabled value="{{ $vPer_RFC }}" class="form-control" id="TePer_RFC" name="TePer_RFC">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label> Estado Civil </label>
-                                            <select class="js-example-basic-single js-states form-control SeEstaCivil" name="SeEstaCivil" id="SeEstaCivil" style="width: 100% !important">
+                                            <select disabled class="js-example-basic-single js-states form-control SeEstaCivil" name="SeEstaCivil" id="SeEstaCivil" style="width: 100% !important">
                                                     <option value="x1" disabled selected>Seleccionar</option>
                                                     @foreach($vEstaCivil as $vE)
                                                         @if ($vFK_EstaCivil == $vE->PK_EstaCivil)
@@ -138,7 +138,7 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="control-label"> Fecha Nacimiento </label>
-                                                <input type="text" value="{{ $vPer_FecNacimiento }}" class="form-control datepicker" name="TePer_FecNacimiento" id="TePer_FecNacimiento" />
+                                                <input disabled type="text" value="{{ $vPer_FecNacimiento }}" class="form-control datepicker" name="TePer_FecNacimiento" id="TePer_FecNacimiento" />
                                         </div>
                                     </div>
                                 </div>
@@ -152,7 +152,7 @@
                                     <div class="col-md-3" id="divSePais">
                                         <div class="form-group">
                                             <label class="control-label"> Pais </label>
-                                            <select class="js-example-basic-single js-states form-control SePais" name="SePais" id="SePais" style="width: 100% !important" onchange="funSeEntidad()">
+                                            <select disabled class="js-example-basic-single js-states form-control SePais" name="SePais" id="SePais" style="width: 100% !important" onchange="funSeEntidad()">
                                                 <option value="x1" disabled selected>Seleccionar</option>
                                                 @foreach($vPais as $vP)
                                                     @if ($vENA_PK_Pais == $vP->PK_Pais)
@@ -167,7 +167,7 @@
                                     <div class="col-md-3" id="divSeEntidad">
                                         <div class="form-group">
                                             <label> Entidad Federativa </label>
-                                            <select class="js-example-basic-single js-states form-control SeEntidad" name="SeEntidad" id="SeEntidad" style="width: 100% !important">
+                                            <select disabled class="js-example-basic-single js-states form-control SeEntidad" name="SeEntidad" id="SeEntidad" style="width: 100% !important">
                                                 <option value="x1" disabled selected>Seleccionar</option>
                                                 @foreach($vEntidadNA as $vENA)
                                                     @if ($vENA_PK_Entidad == $vENA->PK_Entidad )
@@ -182,7 +182,7 @@
                                     <div class="col-md-3" id="divSeMunicipio">
                                         <div class="form-group">
                                             <label> Municipio </label>
-                                            <select class="js-example-basic-single js-states form-control SeMunicipio" name="SeMunicipio" id="SeMunicipio" style="width: 100% !important">
+                                            <select disabled class="js-example-basic-single js-states form-control SeMunicipio" name="SeMunicipio" id="SeMunicipio" style="width: 100% !important">
                                                 <option value="x1" disabled selected>Seleccionar</option>
                                                 @foreach($vMunicipioNA as $vMNA)
                                                     @if ($vMNA_PK_Municipio == $vMNA->PK_Municipio)
@@ -197,7 +197,7 @@
                                     <div class="col-md-3" id="divSeLocalidad">
                                         <div class="form-group">
                                             <label class="control-label"> Localidad </label>
-                                            <select class="js-example-basic-single js-states form-control SeLocalidad" name="SeLocalidad" id="SeLocalidad" style="width: 100% !important">
+                                            <select disabled class="js-example-basic-single js-states form-control SeLocalidad" name="SeLocalidad" id="SeLocalidad" style="width: 100% !important">
                                                 <option value="x1" disabled selected>Seleccionar</option>
                                                 @foreach($vLocalidadNA as $vLNA)
                                                     @if ($vLNA_PK_Localidad == $vLNA->PK_Localidad)
@@ -221,25 +221,25 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="control-label"> Calle </label>
-                                            <input type="text" value="{{ $vPer_DA_Calle }}" placeholder="Jacinto Ticoman" class="form-control" id="TePer_DA_Calle" name="TePer_DA_Calle">
+                                            <input disabled type="text" value="{{ $vPer_DA_Calle }}" class="form-control" id="TePer_DA_Calle" name="TePer_DA_Calle">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="control-label"> Número Exterior</label>
-                                            <input type="text" value="{{ $vPer_DA_NumExt }}" placeholder="1" class="form-control" id="TePer_DA_NumExt" name="TePer_DA_NumExt">
+                                            <input disabled type="text" value="{{ $vPer_DA_NumExt }}" class="form-control" id="TePer_DA_NumExt" name="TePer_DA_NumExt">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="control-label"> Número Interior</label>
-                                            <input type="text" value="{{ $vPer_DA_NumInt }}" placeholder="1" class="form-control" id="TePer_DA_NumInt" name="TePer_DA_NumInt">
+                                            <input disabled type="text" value="{{ $vPer_DA_NumInt }}" class="form-control" id="TePer_DA_NumInt" name="TePer_DA_NumInt">
                                         </div>
                                     </div>
                                     <div class="col-md-3" id="divSePais2">
                                         <div class="form-group">
                                             <label class="control-label"> Pais </label>
-                                            <select class="js-example-basic-single js-states form-control SePais2" name="SePais2" id="SePais2" style="width: 100% !important" onchange="funSeEntidad2()">
+                                            <select disabled class="js-example-basic-single js-states form-control SePais2" name="SePais2" id="SePais2" style="width: 100% !important" onchange="funSeEntidad2()">
                                                     <option value="x1" disabled selected>Seleccionar</option>
                                                     @foreach($vPais as $vPDA)
                                                         @if ($vEDA_PK_Pais == $vPDA->PK_Pais)
@@ -254,7 +254,7 @@
                                     <div class="col-md-3" id="divSeEntidad2">
                                         <div class="form-group">
                                             <label> Entidad Federativa </label>
-                                            <select class="js-example-basic-single js-states form-control SeEntidad2" name="SeEntidad2" id="SeEntidad2" style="width: 100% !important">
+                                            <select disabled class="js-example-basic-single js-states form-control SeEntidad2" name="SeEntidad2" id="SeEntidad2" style="width: 100% !important">
                                                 <option value="x1" disabled selected>Seleccionar</option>
                                                 @foreach($vEntidadDA as $vEDA)
                                                     @if ($vEDA_PK_Entidad == $vEDA->PK_Entidad )
@@ -269,7 +269,7 @@
                                     <div class="col-md-3" id="divSeMunicipio2">
                                         <div class="form-group">
                                             <label> Municipio </label>
-                                            <select class="js-example-basic-single js-states form-control SeMunicipio2" name="SeMunicipio2" id="SeMunicipio2" style="width: 100% !important">
+                                            <select disabled class="js-example-basic-single js-states form-control SeMunicipio2" name="SeMunicipio2" id="SeMunicipio2" style="width: 100% !important">
                                                 <option value="x1" disabled selected>Seleccionar</option>
                                                 @foreach($vMunicipioDA as $vMDA)
                                                     @if ($vMDA_PK_Municipio == $vMDA->PK_Municipio)
@@ -284,7 +284,7 @@
                                     <div class="col-md-3" id="divSeLocalidad2">
                                         <div class="form-group">
                                             <label class="control-label"> Localidad </label>
-                                            <select class="js-example-basic-single js-states form-control SeLocalidad2" name="SeLocalidad2" id="SeLocalidad2" style="width: 100% !important">
+                                            <select disabled class="js-example-basic-single js-states form-control SeLocalidad2" name="SeLocalidad2" id="SeLocalidad2" style="width: 100% !important">
                                                 <option value="x1" disabled selected>Seleccionar</option>
                                                 @foreach($vLocalidadDA as $vLDA)
                                                     @if ($vLDA_PK_Localidad == $vLDA->PK_Localidad)
@@ -308,19 +308,19 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="control-label"> Correo Electrónico </label>
-                                            <input type="email" value="{{ $vPer_Correo }}" placeholder="frank.alvarez@gmail.com" class="form-control" id="TePer_Correo" name="TePer_Correo" />
+                                            <input disabled type="email" value="{{ $vPer_Correo }}" class="form-control" id="TePer_Correo" name="TePer_Correo" />
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="control-label"> Celular </label>
-                                            <input type="text" value="{{ $vPer_Celular }}" placeholder="(993) 436-7727" class="form-control" id="TePer_Celular" name="TePer_Celular" /> 
+                                            <input disabled type="text" value="{{ $vPer_Celular }}" class="form-control" id="TePer_Celular" name="TePer_Celular" /> 
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="control-label"> Teléfono </label>
-                                            <input type="text" value="{{ $vPer_Telefono }}" placeholder="(993) 353-2474" class="form-control" id="TePer_Telefono" name="TePer_Telefono" /> 
+                                            <input disabled type="text" value="{{ $vPer_Telefono }}" class="form-control" id="TePer_Telefono" name="TePer_Telefono" /> 
                                         </div>
                                     </div>
                                 </div>
@@ -335,21 +335,21 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="control-label"> Número IMSS </label>
-                                            <input type="text" value="{{ $vPer_NSS }}" placeholder="01139145682" class="form-control" id="TePer_NSS" name="TePer_NSS" />
+                                            <input disabled type="text" value="{{ $vPer_NSS }}" class="form-control" id="TePer_NSS" name="TePer_NSS" />
                                         </div>
                                     </div>
 
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="control-label"> Crédito INFONAVIT </label>
-                                            <input type="text" value="{{ $vPer_CredInfonavit }}" placeholder="01139145682" class="form-control" id="TePer_CredInfonavit" name="TePer_CredInfonavit">
+                                            <input disabled type="text" value="{{ $vPer_CredInfonavit }}" class="form-control" id="TePer_CredInfonavit" name="TePer_CredInfonavit">
                                         </div>
                                     </div>
 
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="control-label"> Crédito FONACOT </label>
-                                            <input type="text" value="{{ $vPer_CredFonacot }}" placeholder="01139145682" class="form-control" id="TePer_CredFonacot" name="TePer_CredFonacot">
+                                            <input disabled type="text" value="{{ $vPer_CredFonacot }}" class="form-control" id="TePer_CredFonacot" name="TePer_CredFonacot">
                                         </div>
                                     </div>
                                 </div>
@@ -367,7 +367,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label> Sede </label>
-                                            <select class="js-example-basic-single js-states form-control SeSede" name="SeSede" id="SeSede" style="width: 100% !important">
+                                            <select disabled class="js-example-basic-single js-states form-control SeSede" name="SeSede" id="SeSede" style="width: 100% !important">
                                                 <option value="x1" disabled selected>Seleccionar</option>
                                                 @foreach($vSede as $vS)
                                                     @if ($vFK_Sede == $vS->PK_Sede)
@@ -382,7 +382,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label> Superior Jerárquico </label>
-                                            <select class="js-example-basic-single js-states form-control SeSuperiorJerarquico" name="SeSuperiorJerarquico" id="SeSuperiorJerarquico" style="width: 100% !important" onchange="funSeDepartamento()">
+                                            <select disabled class="js-example-basic-single js-states form-control SeSuperiorJerarquico" name="SeSuperiorJerarquico" id="SeSuperiorJerarquico" style="width: 100% !important" onchange="funSeDepartamento()">
                                                 <option value="x1" disabled selected>Seleccionar</option>
                                                 @foreach($vSuperior as $vSup)
                                                     @if ($vFK_SupeJerarquico == $vSup->PK_SupeJerarquico)
@@ -397,7 +397,7 @@
                                     <div class="col-md-4" id="divSeDepartamento">
                                         <div class="form-group">
                                             <label> Departamento </label>
-                                            <select class="js-example-basic-single js-states form-control SeDepartamento" name="SeDepartamento" id="SeDepartamento" style="width: 100% !important">
+                                            <select disabled class="js-example-basic-single js-states form-control SeDepartamento" name="SeDepartamento" id="SeDepartamento" style="width: 100% !important">
                                                 <option value="x1" disabled selected>Seleccionar</option>
                                                 @foreach($vDepartamento as $vDep)
                                                     @if ($vFK_Departamento == $vDep->PK_Departamento)
@@ -414,7 +414,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label> Categoría </label>
-                                            <select class="js-example-basic-single js-states form-control SeCategoria" name="SeCategoria" id="SeCategoria" style="width: 100% !important">
+                                            <select disabled class="js-example-basic-single js-states form-control SeCategoria" name="SeCategoria" id="SeCategoria" style="width: 100% !important">
                                                 <option value="x1" disabled selected>Seleccionar</option>
                                                 @foreach($vCatePuesto as $vC)
                                                     @if ($vFK_CatePuesto == $vC->PK_CatePuesto)
@@ -429,7 +429,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label> Puesto </label>
-                                            <select class="js-example-basic-single js-states form-control SePuesto" name="SePuesto" id="SePuesto" style="width: 100% !important">
+                                            <select disabled class="js-example-basic-single js-states form-control SePuesto" name="SePuesto" id="SePuesto" style="width: 100% !important">
                                                 <option value="x1" disabled selected>Seleccionar</option>
                                                 @foreach($vPuesto as $vP)
                                                     @if ($vFK_Puesto == $vP->PK_Puesto)
@@ -444,7 +444,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label> Tipo de Contrato </label>
-                                            <select class="js-example-basic-single js-states form-control SeTipoContrato" name="SeTipoContrato" id="SeTipoContrato" style="width: 100% !important">
+                                            <select disabled class="js-example-basic-single js-states form-control SeTipoContrato" name="SeTipoContrato" id="SeTipoContrato" style="width: 100% !important">
                                                 <option value="x1" disabled selected>Seleccionar</option>
                                                 @foreach($vTipoContrato as $vTC)
                                                     @if ($vFK_TipoContrato == $vTC->PK_TipoContrato)
@@ -462,7 +462,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label> Área Formación </label>
-                                            <select class="js-example-basic-single js-states form-control SeAreaFormacion" name="SeAreaFormacion" id="SeAreaFormacion" style="width: 100% !important">
+                                            <select disabled class="js-example-basic-single js-states form-control SeAreaFormacion" name="SeAreaFormacion" id="SeAreaFormacion" style="width: 100% !important">
                                                 <option value="x1" disabled selected>Seleccionar</option>
                                                 @foreach($vAreaFormacion as $vAF)
                                                     @if ($vFK_AreaFormacion == $vAF->PK_AreaFormacion)
@@ -477,7 +477,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="control-label"> Fecha Ingreso  </label>
-                                                <input type="text" value="{{ $vPer_FecIngreso }}" class="form-control datepicker" id="TePer_FecIngreso" name="TePer_FecIngreso"/>
+                                            <input disabled type="text" value="{{ $vPer_FecIngreso }}" class="form-control datepicker" id="TePer_FecIngreso" name="TePer_FecIngreso"/>
                                         </div>
                                     </div>
                                 </div>
@@ -866,7 +866,7 @@
             FormElements.init();
             FormValidator.init();
 
-            funPersonal_FormacionBasicaConsultar({{ $vPK_Personal }});
+            funPersonal_FormacionBasicaConsultar({{ $vPK_Personal }}, 0);
             funPersonal_FormacionProfesionalConsultar({{ $vPK_Personal }});
             funPersonal_FormacionPostgradosConsultar({{ $vPK_Personal }});
             funPersonal_TesisConsultar({{ $vPK_Personal }});

@@ -423,7 +423,6 @@ class Controller_Personal extends Controller
         return response()->json(['pSeDepartamento' => $vSeDepartamento]);
     }
 
-
     public function fpSeLengua(Request $r)
     {
         $vLenTipo = $r->input('pLenTipo');
@@ -480,7 +479,7 @@ class Controller_Personal extends Controller
             $vPFB_U = \DB::select("CALL sp_Personal_FormacionBasica_U(".$vPK_PersFB.", ". $vNivelEducativo.", '".$vPFB_Instituto."', ".$vPFB_PeriodoInicio.", ".$vPFB_PeriodoFin.", ".$vPFB_Promedio .", ".$vPFB_UG.", 1, ".$vFK_Usuario.", '".$vObservacion."', '".$vQuery."')");
         }
 
-        $vTabPFB = $this->getTableData_PFB($vPK_Personal);
+        $vTabPFB = $this->getTableData_PFB($vPK_Personal, 1);
 
 
         return response()->json(['pTabPFB' => $vTabPFB]);
@@ -490,8 +489,9 @@ class Controller_Personal extends Controller
     public function fpPersonal_FormacionBasicaConsultar(Request $r)
     {
         $vPK_Personal = $r->input('pPK_Personal');
+        $vFlagCM = $r->input('pFlagCM');
 
-        $vTabPFB = $this->getTableData_PFB($vPK_Personal);
+        $vTabPFB = $this->getTableData_PFB($vPK_Personal, $vFlagCM);
 
         return response()->json(['pTabPFB' => $vTabPFB]);
     }
@@ -506,14 +506,15 @@ class Controller_Personal extends Controller
 
         $vPFB_U = \DB::select("CALL sp_Personal_FormacionBasica_U(".$vPK_PersFB.", 0, '', 0, 0, 0, 0, 0, ".$vFK_Usuario.", '".$vObservacion."', '".$vQuery."')");
 
-        $vTabPFB = $this->getTableData_PFB($vPK_Personal);
+        $vTabPFB = $this->getTableData_PFB($vPK_Personal, 1);
 
         return response()->json(['pTabPFB' => $vTabPFB]);
     }
 
-    protected function getTableData_PFB($pPK_Personal)
+    protected function getTableData_PFB($pPK_Personal, $pFlagCM)
     {
         $vPK_Personal = $pPK_Personal;
+        $vFlagCM = $pFlagCM;
         $vPFB_S = \DB::select("CALL sp_Personal_FormacionBasica_S(NULL, ". $vPK_Personal .")");
 
         $vTabConPFB = '';
@@ -528,31 +529,36 @@ class Controller_Personal extends Controller
                 <td>'. $vP->PFB_Instituto .'</td>
                 <td>'. $vP->PFB_Promedio .'</td>
                 <td>'. $vP->PFB_PeriodoInicio . ' - ' . $vP->PFB_PeriodoFin  .'</td>
-                <td>'. $vP->PFB_UGDescripcion .'</td>
-                <td>
-                    <table>
-                        <tr>
-                            <th>
-                                <button onclick="funPersonal_FormacionBasicaEditarForm('.$vP->PK_PersFB.')" class="btn search-button" data-toggle="tooltip" title="Editar">
-                                    <i class="fa fa-edit"></i>
-                                </button>
-                            </th>
-                            <th>&nbsp;</th>
-                            <th>
-                                <button onclick="funPersonal_FormacionBasicaEliminar('.$vP->PK_PersFB.')"  class="btn search-button" data-toggle="tooltip" title="Eliminar">
-                                    <i class="fa fa-trash"></i>
-                                </button>
-                            </th>
-                            <th>&nbsp;</th>
-                            <th>
-                            <button onclick="funBitacora2(\'t_personal_formacionbasica\', '.$vP->PK_PersFB.')" data-toggle="modal" data-target=".Mod_Bitacora"  class="btn search-button" data-toggle="tooltip" title="Bitacora">
-                                    <i class="fa fa-list-ol"></i>
-                                </button>
-                            </th>
-                        </tr>
-                    </table>
-                </td>
-            </tr>';
+                <td>'. $vP->PFB_UGDescripcion .'</td>';
+                if($vFlagCM == 1)
+                {
+                    $vTabConPFB .= '
+                        <td>
+                            <table>
+                                <tr>
+                                    <th>
+                                        <button onclick="funPersonal_FormacionBasicaEditarForm('.$vP->PK_PersFB.')" class="btn search-button" data-toggle="tooltip" title="Editar">
+                                            <i class="fa fa-edit"></i>
+                                        </button>
+                                    </th>
+                                    <th>&nbsp;</th>
+                                    <th>
+                                        <button onclick="funPersonal_FormacionBasicaEliminar('.$vP->PK_PersFB.')"  class="btn search-button" data-toggle="tooltip" title="Eliminar">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
+                                    </th>
+                                    <th>&nbsp;</th>
+                                    <th>
+                                    <button onclick="funBitacora2(\'t_personal_formacionbasica\', '.$vP->PK_PersFB.')" data-toggle="modal" data-target=".Mod_Bitacora"  class="btn search-button" data-toggle="tooltip" title="Bitacora">
+                                            <i class="fa fa-list-ol"></i>
+                                        </button>
+                                    </th>
+                                </tr>
+                            </table>
+                        </td>';
+                }
+
+            $vTabConPFB .= '</tr>';
             $x++;
         }
 
@@ -566,9 +572,13 @@ class Controller_Personal extends Controller
                         <th>Instituto</th>
                         <th>Promedio</th>
                         <th>Periodo</th>
-                        <th>Ultimo Grado</th>
-                        <th></th>
-                    </tr>
+                        <th>Ultimo Grado</th>';
+        if($vFlagCM == 1)
+        {
+            $vTabPFB .= '<th></th>';
+        }
+
+        $vTabPFB .= '</tr>
                 </thead>
                 <tbody>'
                     . $vTabConPFB .

@@ -1778,7 +1778,7 @@
             FormElements.init();
             FormValidator.init();
 
-            funPersonal_FormacionBasicaConsultar({{ $vPK_Personal }});
+            funPersonal_FormacionBasicaConsultar({{ $vPK_Personal }}, 1);
             funPersonal_FormacionProfesionalConsultar({{ $vPK_Personal }});
             funPersonal_FormacionPostgradosConsultar({{ $vPK_Personal }});
             funPersonal_TesisConsultar({{ $vPK_Personal }});

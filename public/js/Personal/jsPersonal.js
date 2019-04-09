@@ -280,16 +280,18 @@ function funPersonal_FormacionBasicaGuardar() {
     });
 }
 
-function funPersonal_FormacionBasicaConsultar(pPK_Personal) {
+function funPersonal_FormacionBasicaConsultar(pPK_Personal, pFlagCM) {
     var _token = $("input[name='_token']").val();
     var vPK_Personal = pPK_Personal;
+    var vFlagCM = pFlagCM;
 
     $.ajax({
         url: '/Personal_FormacionBasicaConsultar',
         type: 'POST',
         data: {
             _token: _token,
-            pPK_Personal: vPK_Personal
+            pPK_Personal: vPK_Personal,
+            pFlagCM: vFlagCM
         },
 
         beforeSend: function() {
